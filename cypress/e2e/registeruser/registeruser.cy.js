@@ -32,6 +32,6 @@ describe('register user', () => {
       cy.contains('a','Logged in as')
       cy.contains('a','Delete Account').click()
       cy.contains('b', 'Account Deleted!')
-      cy.get('[data-qa="continue-button"]').click()
+      cy.get('[data-qa="continue-button"]').click()//teste comment
     })
 })
