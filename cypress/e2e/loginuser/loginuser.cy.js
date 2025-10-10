@@ -15,7 +15,7 @@ describe('Login user', ()=> {
         cy.get('.shop-menu > .nav > :nth-child(5) > a').click()
         cy.contains('b', 'Account Deleted!')
     })
-    it.only('Login User with incorrect email and password', () => {
+    it('Login User with incorrect email and password', () => {
         cy.contains('a', 'Signup / Login')
         cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
         cy.contains('h2','Login to your account')
@@ -23,8 +23,8 @@ describe('Login user', ()=> {
         cy.get('[data-qa="login-password"]').type('wrongPassword')
         cy.get('[data-qa="login-button"]').click()
         cy.contains('p','Your email or password is incorrect!')
-        
-
-
+    })
+    it.only('Logout User', () => {
+        cy.createuser()
     })
 })
