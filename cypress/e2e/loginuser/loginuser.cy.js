@@ -24,7 +24,7 @@ describe('Login user', ()=> {
         cy.get('[data-qa="login-button"]').click()
         cy.contains('p','Your email or password is incorrect!')
     })
-    it.only('Logout User', () => {
+    it('Logout User', () => {
         cy.createuser()
     })
 })
