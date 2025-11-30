@@ -3,7 +3,7 @@ describe('Test Case Page', ()=> {
         cy.visit('https://automationexercise.com/');
     })
     it('Verify  Test Cases Page', () => {
-        cy.get('.shop-menu > .nav > :nth-child(1) > a').should('be.visible');
+        cy.url().should('eq','https://automationexercise.com/');
 
         cy.get('.shop-menu > .nav > :nth-child(5) > a').click();
         cy.contains('b','Test Cases');
