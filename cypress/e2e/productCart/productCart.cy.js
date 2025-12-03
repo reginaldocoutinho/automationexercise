@@ -1,6 +1,7 @@
 describe('Product Cart', () => {
     beforeEach(()=> {
         cy.visit('https://automationexercise.com/');
+        cy.url().should('eq','https://automationexercise.com/');
     })
     it('Add Products in Cart', ()=> {
         let priceProduct1;
@@ -10,7 +11,7 @@ describe('Product Cart', () => {
         let qtdProduct2;
         let totalProduct2;
 
-        cy.url().should('eq','https://automationexercise.com/');
+        
         cy.contains('a','Products').click();
         cy.get(':nth-child(3) > .product-image-wrapper > .single-products > .productinfo > .btn').click();
         cy.get('.modal-footer > .btn').click();
@@ -57,5 +58,22 @@ describe('Product Cart', () => {
                 expect(totalProduct2).to.equal(expectTotal);
             })
             
+    }),
+    it.only('Verify Product quantity in Cart', () =>{
+        let qtd = 4;
+        let qtdProduct;
+        cy.contains('a','View Product').click();
+        cy.url().should('include','product_details');
+        cy.get('#quantity').clear();
+        cy.get('#quantity').type(qtd);
+        cy.contains('button','Add to cart').click();
+        cy.contains('u','View Cart').click();
+        cy.get('.disabled')
+            .invoke('text')
+            .then((qtdText) => {
+                qtdProduct = parseInt(qtdText.trim());
+
+                expect(qtdProduct).to.equal(qtd);
+            })
     })
 })
