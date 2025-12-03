@@ -7,7 +7,7 @@ describe('register user', () => {
       cy.contains('a', 'Signup / Login').click()
       cy.contains('h2','New User Signup!')
       cy.get('[data-qa="signup-name"]').type('testname')
-      cy.get('[data-qa="signup-email"]').type('testname1@outlook.com')
+      cy.get('[data-qa="signup-email"]').type('testname6@outlook.com')
       cy.get('[data-qa="signup-button"]').click()
       cy.contains('b','Enter Account Information')
       cy.get('#id_gender1').click()
