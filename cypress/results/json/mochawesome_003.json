@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-03T14:59:20.787Z",
+    "end": "2025-12-03T14:59:38.089Z",
+    "duration": 17302,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a981e7c2-07ff-4d06-a0c4-c17b4c9876e0",
+      "title": "",
+      "fullFile": "cypress\\e2e\\registeruser\\registeruser.cy.js",
+      "file": "cypress\\e2e\\registeruser\\registeruser.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "dfe1d278-c8e7-4ae0-9689-5b0693237bfd",
+          "title": "register user",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Sign Up",
+              "fullTitle": "register user Sign Up",
+              "timedOut": null,
+              "duration": 15241,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.url().should('eq', 'https://automationexercise.com/');\ncy.contains('a', 'Signup / Login').click();\ncy.contains('h2', 'New User Signup!');\ncy.get('[data-qa=\"signup-name\"]').type('testname');\ncy.get('[data-qa=\"signup-email\"]').type('testname6@outlook.com');\ncy.get('[data-qa=\"signup-button\"]').click();\ncy.contains('b', 'Enter Account Information');\ncy.get('#id_gender1').click();\ncy.get('[data-qa=\"password\"]').type('testpassword');\ncy.get('[data-qa=\"days\"]').select('30');\ncy.get('[data-qa=\"months\"]').select('October');\ncy.get('[data-qa=\"years\"]').select('1998');\ncy.get('#newsletter').click();\ncy.get('#optin').click();\ncy.get('[data-qa=\"first_name\"]').type(\"First name\");\ncy.get('[data-qa=\"last_name\"]').type(\"Last name\");\ncy.get('[data-qa=\"company\"]').type(\"Company\");\ncy.get('[data-qa=\"address\"]').type(\"street addres\");\ncy.get('[data-qa=\"country\"]').select('Canada');\ncy.get('[data-qa=\"state\"]').type('Ontario');\ncy.get('[data-qa=\"city\"]').type('Toronto');\ncy.get('[data-qa=\"zipcode\"]').type('M5V 3L9');\ncy.get('[data-qa=\"mobile_number\"]').type('5516991509030');\ncy.get('[data-qa=\"create-account\"]').click();\ncy.contains('b', 'Account Created!');\ncy.get('[data-qa=\"continue-button\"]').click();\ncy.contains('a', 'Logged in as');\ncy.contains('a', 'Delete Account').click();\ncy.contains('b', 'Account Deleted!');\ncy.get('[data-qa=\"continue-button\"]').click();",
+              "err": {},
+              "uuid": "0603b769-3f4d-4c11-92a4-67c777b9624f",
+              "parentUUID": "dfe1d278-c8e7-4ae0-9689-5b0693237bfd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "0603b769-3f4d-4c11-92a4-67c777b9624f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15241,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

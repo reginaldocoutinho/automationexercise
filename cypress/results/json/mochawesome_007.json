@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-03T15:00:08.269Z",
+    "end": "2025-12-03T15:00:14.367Z",
+    "duration": 6098,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a3f6ec2d-fcad-423a-9c8d-b1a5d275447b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\subscriptionCartPage\\subscriptionCartPage.cy.js",
+      "file": "cypress\\e2e\\subscriptionCartPage\\subscriptionCartPage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9c7670f2-6367-48f7-8c48-479e9cd7c545",
+          "title": "Subscription Cart Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify Subscription in Cart page",
+              "fullTitle": "Subscription Cart Page Verify Subscription in Cart page",
+              "timedOut": null,
+              "duration": 4031,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.url().should('eq', 'https://automationexercise.com/');\ncy.get('.shop-menu > .nav > :nth-child(3)').click();\ncy.scrollTo('bottom');\ncy.contains('h2', 'Subscription');\ncy.get('#susbscribe_email').type('joanhiah533@gmail.com');\ncy.get('#subscribe').click();\ncy.get('.alert-success').should('be.visible');",
+              "err": {},
+              "uuid": "5c48080e-a3d2-426b-9581-8d958e0cfb9e",
+              "parentUUID": "9c7670f2-6367-48f7-8c48-479e9cd7c545",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5c48080e-a3d2-426b-9581-8d958e0cfb9e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4031,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "charts": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
