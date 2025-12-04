@@ -1,9 +1,9 @@
 describe('register user', () => {
   beforeEach(() => {
     cy.visit('https://automationexercise.com/')
+    cy.url().should('eq', 'https://automationexercise.com/')
   })
   it('Sign Up', () => {
-    cy.url().should('eq', 'https://automationexercise.com/')
       cy.contains('a', 'Signup / Login').click()
       cy.contains('h2','New User Signup!')
       cy.get('[data-qa="signup-name"]').type('testname')
@@ -33,5 +33,12 @@ describe('register user', () => {
       cy.contains('a','Delete Account').click()
       cy.contains('b', 'Account Deleted!')
       cy.get('[data-qa="continue-button"]').click()
+    }),
+    it.only('Place Order: Register while Checkout', () => {
+      cy.get('.features_items > :nth-child(3) > .product-image-wrapper > .single-products > .productinfo > .btn'). click();
+      cy.get('.modal-footer > .btn').click();
+      cy.contains('a','Cart').click();
+      cy.contains('a','Proceed To Checkout').click();
+      cy.get('.modal-body > :nth-child(2) > a > u').click();
     })
 })
