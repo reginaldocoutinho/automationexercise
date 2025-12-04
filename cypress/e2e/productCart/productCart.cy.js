@@ -59,7 +59,7 @@ describe('Product Cart', () => {
             })
             
     }),
-    it.only('Verify Product quantity in Cart', () =>{
+    it('Verify Product quantity in Cart', () =>{
         let qtd = 4;
         let qtdProduct;
         cy.contains('a','View Product').click();
