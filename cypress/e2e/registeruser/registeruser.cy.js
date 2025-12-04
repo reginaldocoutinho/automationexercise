@@ -3,15 +3,15 @@ describe('register user', () => {
     cy.visit('https://automationexercise.com/')
     cy.url().should('eq', 'https://automationexercise.com/')
   })
-  it('Sign Up', () => {
+  it('Sign Up', (email = 'testname7@outlook.com', senha = 'teste') => {
       cy.contains('a', 'Signup / Login').click()
       cy.contains('h2','New User Signup!')
       cy.get('[data-qa="signup-name"]').type('testname')
-      cy.get('[data-qa="signup-email"]').type('testname6@outlook.com')
+      cy.get('[data-qa="signup-email"]').type(email)
       cy.get('[data-qa="signup-button"]').click()
       cy.contains('b','Enter Account Information')
       cy.get('#id_gender1').click()
-      cy.get('[data-qa="password"]').type('testpassword')
+      cy.get('[data-qa="password"]').type(senha)
       cy.get('[data-qa="days"]').select('30')
       cy.get('[data-qa="months"]').select('October')
       cy.get('[data-qa="years"]').select('1998')
@@ -40,5 +40,20 @@ describe('register user', () => {
       cy.contains('a','Cart').click();
       cy.contains('a','Proceed To Checkout').click();
       cy.get('.modal-body > :nth-child(2) > a > u').click();
+      cy.createUser();
+      cy.contains('a', 'Cart').click();
+      cy.get('.col-sm-6 > .btn').click();
+      cy.get('#address_delivery').should('be.visible');
+      cy.get('#address_invoice').should('be.visible');
+      cy.get('.form-control').type('Teste');
+      cy.contains('a','Place Order').click();
+      cy.get('[data-qa="name-on-card"]').type('teste man');
+      cy.get('[data-qa="card-number"]').type('12344565566');
+      cy.get('[data-qa="cvc"]').type('123');
+      cy.get('[data-qa="expiry-month"]').type('10');
+      cy.get('[data-qa="expiry-year"]').type(2026);
+      cy.contains('button','Pay and Confirm Order').click();
+      cy.contains('p','Congratulations! Your order has been confirmed!').should('be.visible');
+      cy.deleteAccount();
     })
 })
