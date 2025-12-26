@@ -52,7 +52,7 @@ describe('register user', () => {
       cy.deleteAccount();
        })
     })
-    it.only('Place Order: Login before Checkout', () => {
+    it('Place Order: Login before Checkout', () => {
       cy.contains('a', 'Signup / Login').click();
       cy.contains('h2','New User Signup!');
       cy.signUser();
