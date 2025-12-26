@@ -23,10 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('signUser', (email = 'teste7@outlook.com', password = 'teste') => {
+Cypress.Commands.add('signUser', (userName = 'testname',email = 'teste7@outlook.com', password = 'teste') => {
       cy.contains('a', 'Signup / Login').click()
         cy.get('[data-qa="login-email"]').type('teste7@outlook.com') //Precisa ter um usuário criado para testar
         cy.get('[data-qa="login-password"]').type('teste')
+        cy.wrap(userName).as('userName');
         cy.get('[data-qa="login-button"]').click()
       cy.url().then((currentUrl) => {
       if (currentUrl.includes('login')) {
