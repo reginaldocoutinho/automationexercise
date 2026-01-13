@@ -76,11 +76,27 @@ describe('Product Cart', () => {
                 expect(qtdProduct).to.equal(qtd);
             })
     }),
-    it.only('Remove Products From Cart', ()  => {
+    it('Remove Products From Cart', ()  => {
         cy.contains('a','Add to cart').click();
         cy.contains('u','View Cart').click();
         cy.url().should('include','view_cart');
         cy.get('.cart_quantity_delete > .fa').click();
         cy.contains('b','Cart is empty!').should('be.visible');
+    }),
+    it.only('Search Products and Verify Cart After Login', () => {
+        cy.contains('a','Products').click();
+        cy.url().should('include','products');
+        cy.get('#search_product').type('Men Tshirt');
+        cy.get('#submit_search').click();
+        cy.get('.productinfo').should('be.visible');
+        cy.get('a[data-product-id="2"]').first().click();
+        cy.get('u').click();
+        cy.get('a[href*="/product_details/2"]').should('be.visible');
+        cy.get(':nth-child(4) > a').click();
+        cy.signUser();
+        cy.contains('a','Cart').click();
+        cy.get('#product-2').should('be.visible');
+
+
     })
 })
