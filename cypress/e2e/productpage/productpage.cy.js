@@ -20,5 +20,16 @@ describe('Product Page', ()=>{
         cy.contains('.product-information', 'Condition:').should('be.visible');
         cy.contains('.product-information','Brand:').should('be.visible');
         
+    }),
+    it.only('Add review on product', () =>{
+        cy.contains('a','Products').click();
+        cy.url().should('include','products');
+        cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a').click();
+        cy.contains('a','Write Your Review').should('be.visible');
+        cy.get('#name').type('Teste Name');
+        cy.get('#email').type('teste@email.com');
+        cy.get('#review').type('Produto de ótima qualidade!');
+        cy.get('#button-review').click();
+        cy.get('.alert-success > span').should('be.visible');
     })
 })
