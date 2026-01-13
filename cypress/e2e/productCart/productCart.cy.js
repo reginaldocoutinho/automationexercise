@@ -83,7 +83,7 @@ describe('Product Cart', () => {
         cy.get('.cart_quantity_delete > .fa').click();
         cy.contains('b','Cart is empty!').should('be.visible');
     }),
-    it.only('Search Products and Verify Cart After Login', () => {
+    it('Search Products and Verify Cart After Login', () => {
         cy.contains('a','Products').click();
         cy.url().should('include','products');
         cy.get('#search_product').type('Men Tshirt');
