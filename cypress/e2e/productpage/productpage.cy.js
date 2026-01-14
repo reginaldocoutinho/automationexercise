@@ -21,7 +21,7 @@ describe('Product Page', ()=>{
         cy.contains('.product-information','Brand:').should('be.visible');
         
     }),
-    it.only('Add review on product', () =>{
+    it('Add review on product', () =>{
         cy.contains('a','Products').click();
         cy.url().should('include','products');
         cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a').click();
