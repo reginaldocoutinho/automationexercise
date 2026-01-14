@@ -96,7 +96,12 @@ describe('Product Cart', () => {
         cy.signUser();
         cy.contains('a','Cart').click();
         cy.get('#product-2').should('be.visible');
-
-
+    })
+    it('Add to cart from Recommended items', () => {
+        cy.scrollTo('bottom');
+        cy.get('.recommended_items').should('be.visible');
+        cy.get('.active > :nth-child(1) > .product-image-wrapper > .single-products > .productinfo > .btn').click();
+        cy.get('u').click();
+        cy.get('#product-4').should('be.visible');
     })
 })
