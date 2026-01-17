@@ -104,7 +104,7 @@ describe('Product Cart', () => {
         cy.get('u').click();
         cy.get('#product-4').should('be.visible');
     }),
-    it.only('Verify address details in checkout page', () => {
+    it('Verify address details in checkout page', () => {
         cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
         cy.contains('h2','Login to your account')
         cy.signUser();
