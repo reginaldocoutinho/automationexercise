@@ -51,12 +51,13 @@ Cypress.Commands.add('signUser', (userName = 'testname',email = 'teste7@outlook.
             // mas em um fluxo de teste linear e determinado (melhor prática Cypress).
             cy.get('[data-qa="continue-button"]').click();
             cy.signUser();
-      } else {
-            cy.contains('a','Logout').click();
-            // Ações de validação após o logout:
-            cy.contains('b', 'Account Deleted!');
-            cy.get('[data-qa="continue-button"]').click();
-      }
+      } 
+      // else {
+      //       cy.contains('a','Logout').click();
+      //       // Ações de validação após o logout:
+      //       cy.contains('b', 'Account Deleted!');
+      //       cy.get('[data-qa="continue-button"]').click();
+      // }
       });
 
         

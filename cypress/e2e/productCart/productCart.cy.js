@@ -96,12 +96,24 @@ describe('Product Cart', () => {
         cy.signUser();
         cy.contains('a','Cart').click();
         cy.get('#product-2').should('be.visible');
-    })
+    }),
     it('Add to cart from Recommended items', () => {
         cy.scrollTo('bottom');
         cy.get('.recommended_items').should('be.visible');
         cy.get('.active > :nth-child(1) > .product-image-wrapper > .single-products > .productinfo > .btn').click();
         cy.get('u').click();
         cy.get('#product-4').should('be.visible');
+    }),
+    it.only('Verify address details in checkout page', () => {
+        cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
+        cy.contains('h2','Login to your account')
+        cy.signUser();
+        cy.contains('a','Add to cart').click();
+        cy.contains('u','View Cart').click();
+        cy.url().should('include','view_cart');
+        cy.get('.col-sm-6 > .btn').click();
+        cy.get('#address_delivery > .address_city').should('eq','Toronto Ontario');
+        cy.deleteAccount();
     })
+
 })

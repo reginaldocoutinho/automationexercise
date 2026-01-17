@@ -2,7 +2,7 @@ describe('Login user', ()=> {
     beforeEach(() => {
         cy.visit('https://automationexercise.com/')
     })
-    it.only('Login User with correct email and password', () =>  {
+    it('Login User with correct email and password', () =>  {
         cy.contains('h2','New User Signup!')
         cy.visit('https://automationexercise.com/')
         cy.get('.shop-menu > .nav > :nth-child(4) > a').click()
