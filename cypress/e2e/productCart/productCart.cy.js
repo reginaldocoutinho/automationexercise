@@ -115,7 +115,7 @@ describe('Product Cart', () => {
         cy.get('#address_delivery > .address_city').should('eq','Toronto Ontario');
         cy.deleteAccount();
     }),
-    it.only('Download Invoice after purchase order', () =>{
+    it('Download Invoice after purchase order', () =>{
         cy.contains('a','Add to cart').click();
         cy.contains('u','View Cart').click();
         cy.url().should('include','view_cart');
