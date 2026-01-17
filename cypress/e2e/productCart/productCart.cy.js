@@ -114,6 +114,38 @@ describe('Product Cart', () => {
         cy.get('.col-sm-6 > .btn').click();
         cy.get('#address_delivery > .address_city').should('eq','Toronto Ontario');
         cy.deleteAccount();
+    }),
+    it.only('Download Invoice after purchase order', () =>{
+        cy.contains('a','Add to cart').click();
+        cy.contains('u','View Cart').click();
+        cy.url().should('include','view_cart');
+        cy.get('.col-sm-6 > .btn').click();
+        cy.get('.modal-body > :nth-child(2) > a > u').click();
+        cy.createUser();
+        cy.contains('a','testname').should('be.visible');
+        cy.contains('a','Cart').click();
+        cy.get('.col-sm-6 > .btn').click();
+        cy.get('#address_delivery > .address_city').should('contain.text', 'Toronto Ontario');
+        cy.get('.form-control').type('Test Comment');
+        cy.get(':nth-child(7) > .btn').click();
+        cy.get('[data-qa="name-on-card"]').type('Test name on Card');
+        cy.get('[data-qa="card-number"]').type('132144134');
+        cy.get('[data-qa="cvc"]').type('123');
+        cy.get('[data-qa="expiry-month"]').type('03');
+        cy.get('[data-qa="expiry-year"]').type('2028');
+        cy.get('[data-qa="pay-button"]').click();
+        cy.get('.col-sm-9 > p').should('be.visible');
+        cy.get('.col-sm-9 > .btn-default').click();
+        cy.get('[data-qa="continue-button"]').click();
+        cy.get('.shop-menu > .nav > :nth-child(5) > a').click();
+        cy.get('[data-qa="continue-button"]').click();
+        
+
+
+        
+
+
+
     })
 
 })
