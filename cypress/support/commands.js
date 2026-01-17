@@ -1,69 +1,13 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('signUser', (userName = 'testname',email = 'teste7@outlook.com', password = 'teste') => {
+Cypress.Commands.add('signUser', (userName = 'testname',email = 'teste2@outlook.com', password = 'teste') => {
       cy.contains('a', 'Signup / Login').click()
-        cy.get('[data-qa="login-email"]').type('teste7@outlook.com') //Precisa ter um usuário criado para testar
+        cy.get('[data-qa="login-email"]').type(email) //Precisa ter um usuário criado para testar
         cy.get('[data-qa="login-password"]').type('teste')
         cy.wrap(userName).as('userName');
         cy.get('[data-qa="login-button"]').click()
-      cy.url().then((currentUrl) => {
-      if (currentUrl.includes('login')) {
-            // Dentro do 'then', 'currentUrl' é uma string JavaScript normal.
-            // Ainda precisamos tratar a visibilidade do elemento.
-            // Podemos usar cy.get() e verificar o comprimento (length) dentro de outro .then()
-            cy.get('body').then(($body) => { // Consulta o body para usar jQuery .find()
-                  if ($body.find('.login-form > form > p:visible').length > 0) {
-                  cy.log('Estamos na página de login com formulário visível.');
-                  cy.createUser();
-                  } else {
-                  // Caso a URL inclua 'login' mas o form não esteja visível (caso inesperado?)
-                  cy.log('URL de login, mas formulário invisível. Tratamento alternativo.');
-                  }
-            });
-
-      } else if (currentUrl === 'https://automationexercise.com/') {
-            cy.log('Estamos na página inicial.');
-            cy.contains('a', 'Delete Account').click();
-            // Os comandos seguintes do seu else original devem ser movidos para depois da ação,
-            // mas em um fluxo de teste linear e determinado (melhor prática Cypress).
-            cy.get('[data-qa="continue-button"]').click();
-            cy.signUser();
-      } 
-      // else {
-      //       cy.contains('a','Logout').click();
-      //       // Ações de validação após o logout:
-      //       cy.contains('b', 'Account Deleted!');
-      //       cy.get('[data-qa="continue-button"]').click();
-      // }
-      });
-
         
 })
 
-Cypress.Commands.add('createUser', (userName = 'testname', email = 'teste7@outlook.com', password = 'teste') => {
+Cypress.Commands.add('createUser', (userName = 'testname', email = 'teste1@outlook.com', password = 'teste') => {
       cy.get('[data-qa="signup-name"]').type('testname');
       cy.wrap(userName).as('userName'); 
       cy.get('[data-qa="signup-email"]').type(email);
